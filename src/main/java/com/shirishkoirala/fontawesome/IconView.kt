@@ -2,9 +2,7 @@ package com.shirishkoirala.fontawesome
 
 import android.content.Context
 import android.util.AttributeSet
-
-class IconView(context: Context) :
-    androidx.appcompat.widget.AppCompatImageView(context) {
+class IconView(context: Context) : androidx.appcompat.widget.AppCompatImageView(context) {
     constructor(context: Context, attrs: AttributeSet?) : this(context) {
         init(context, attrs)
     }
@@ -14,8 +12,7 @@ class IconView(context: Context) :
     }
 
     fun init(context: Context, attributeSet: AttributeSet?) {
-//        val attr =
-//            context.obtainStyledAttributes(attributeSet, R.styleable.FloatingActionButton, 0, 0)
+        val attr = context.obtainStyledAttributes(attributeSet, R.styleable.FontAwesomeIconView, 0, 0)
 //        mColorNormal = attr.getColor(
 //            R.styleable.FloatingActionButton_fab_colorNormal,
 //            getColor(R.color.holo_blue_dark)
@@ -41,5 +38,6 @@ class IconView(context: Context) :
 //        mShadowOffset = getDimension(R.dimen.fab_shadow_offset)
 //        updateDrawableSize()
 //        updateBackground()
+
     }
 }

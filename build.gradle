@@ -1,3 +1,18 @@
+buildscript {
+
+    repositories {
+
+        google()
+
+        mavenCentral()
+    }
+
+    dependencies {
+
+        classpath 'com.android.tools.build:gradle:7.4.2'
+    }
+}
+
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
@@ -31,7 +46,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     testImplementation 'junit:junit:4.13.2'

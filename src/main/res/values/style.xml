@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="FontAwesomeIconView">
-        <attr name="fa_color" format="color" />
+        <attr name="fa_icon" format="string" />
 <!--        <attr name="fab_colorDisabled" format="color" />-->
 <!--        <attr name="fab_colorNormal" format="color" />-->
 <!--        <attr name="fab_icon" format="reference" />-->
