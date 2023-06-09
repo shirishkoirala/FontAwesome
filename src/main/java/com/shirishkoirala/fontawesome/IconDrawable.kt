@@ -12,9 +12,9 @@ import android.graphics.drawable.ShapeDrawable
 class IconDrawable(context: Context, string: String) : ShapeDrawable() {
     private var textPaint: Paint = Paint()
     private var text: String = string
-    private var height = 10
-    private var width = 10
-    private var fontSize = 8
+    private var height = -1
+    private var width = -1
+    private var fontSize = -1
     private var context: Context
 
     init {
@@ -37,7 +37,8 @@ class IconDrawable(context: Context, string: String) : ShapeDrawable() {
 
         val width = if (width < 0) r.width() else width
         val height = if (height < 0) r.height() else height
-        val fontSize = if (fontSize < 0) Math.min(width, height) / 2 else fontSize
+        val fontSize = if (fontSize < 0) Math.min(width, height) else fontSize
+
         textPaint.textSize = fontSize.toFloat()
         canvas.drawText(
             text, (width / 2).toFloat(),
