@@ -9,7 +9,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.ShapeDrawable
 
 
-class IconDrawable(context: Context, string: String) : ShapeDrawable() {
+class IconDrawable(context: Context, string: String, color: Int = Color.WHITE) : ShapeDrawable() {
     private var textPaint: Paint = Paint()
     private var text: String = string
     private var height = -1
@@ -24,19 +24,18 @@ class IconDrawable(context: Context, string: String) : ShapeDrawable() {
         textPaint.style = Paint.Style.FILL
         textPaint.typeface = Typeface.createFromAsset(context.assets, "font/solid.otf")
         textPaint.textAlign = Paint.Align.CENTER
-        textPaint.color = Color.WHITE
+        textPaint.color = color
         paint.color = Color.TRANSPARENT
     }
 
     override fun draw(canvas: Canvas) {
         super.draw(canvas)
-        val r = bounds
 
         val count = canvas.save()
-        canvas.translate(r.left.toFloat(), r.top.toFloat())
+        canvas.translate(bounds.left.toFloat(), bounds.top.toFloat())
 
-        val width = if (width < 0) r.width() else width
-        val height = if (height < 0) r.height() else height
+        val width = if (width < 0) bounds.width() else width
+        val height = if (height < 0) bounds.height() else height
         val fontSize = if (fontSize < 0) Math.min(width, height) else fontSize
 
         textPaint.textSize = fontSize.toFloat()
