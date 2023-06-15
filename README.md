@@ -1,9 +1,6 @@
 # FontAwesome Icon Library for Android
 
-The FontAwesome Icon Library for Android provides a simple and convenient way to use FontAwesome
-icons in your Android projects. With this library, you can easily incorporate a wide range of
-high-quality and scalable icons into your Android app. It allows user to easily create drawables using Font Awesome icons and utilize Unicode values in strings.xml files to set text in TextView.  
-The library also provides two additional helper views, namely `IconTextView` and `IconView`.
+The FontAwesome Icon Library for Android provides a simple and convenient way to use FontAwesome icons in your Android projects. With this library, you can easily incorporate a wide range of high-quality and scalable icons into your Android app. It allows user to easily create drawables using Font Awesome icons and utilize Unicode values in strings.xml files to set text in TextView. The library also provides two additional helper views, namely `IconTextView` and `IconView`.
 
 ## Features
 
@@ -27,14 +24,9 @@ To use the FontAwesome Icon Library in your Android project, follow these steps:
 2. Sync your project to fetch the library from the specified dependency.
 
 ## Usage
-Using the FontAwesome Icon Library is straightforward but can be achieved in different ways.
-Identify the desired icon from the available Font Awesome icons.  
-You can refer to the [Font Awesome website ](https://fontawesome.com/icons) for a comprehensive list of icons.  
-Follow any of the following ways to add icon to your project.
+Using the FontAwesome Icon Library is straightforward but can be achieved in different ways. First, identify the desired icon from the available Font Awesome icons. You can refer to the [Font Awesome website ](https://fontawesome.com/icons) for a comprehensive list of icons. Follow any of the following ways to add icon to your project.
 
-# Creating Drawables with Font Awesome Icons and adding it to `ImageView`
-To create a drawable using a Font Awesome icon, follow these steps:
-
+### Creating Drawables with Font Awesome Icons and adding it to `ImageView`To create a drawable using a Font Awesome icon, follow these steps:
 1. In your XML layout file, define an ImageView:
     ```xml
     <ImageView
@@ -53,8 +45,7 @@ To create a drawable using a Font Awesome icon, follow these steps:
    ImageView imageView = (ImageView)findViewById(R.id.imageView);
    imageView.setImageDrawable(whiteGearIcon);
    ```
-# Using `IconTextView`
-
+### Using `IconTextView`
 
 1. Add the `IconTextView` widget to your layout XML file:
 
@@ -76,7 +67,7 @@ To create a drawable using a Font Awesome icon, follow these steps:
     iconTextView.setTextSize(24);
     iconTextView.setTextColor(this,R.color.white);
     ```
-# Using `IconView`
+### Using `IconView`
 1.  Add the `IconView` widget to your layout XML file:
 
     ```xml
