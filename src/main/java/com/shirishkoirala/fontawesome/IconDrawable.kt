@@ -17,6 +17,8 @@ class IconDrawable(context: Context, string: String, color: Int = Color.WHITE) :
     private var fontSize = -1
     private var context: Context
 
+    constructor(context: Context, string: String) : this(context, string, Color.WHITE)
+
     init {
         this.context = context
         textPaint.isAntiAlias = true
