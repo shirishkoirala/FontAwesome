@@ -86,6 +86,15 @@ Using the FontAwesome Icon Library is straightforward but can be achieved in dif
     iconView.setIcon(Icons.gear);
     ```
 
+### Using Jetpack Compose
+
+```kotlin
+ComposeIconView(
+    color = R.color.black,
+    modifier = Modifier.padding(it),
+    size = Dp(35f)
+)
+```
 ## Contributing
 
 Contributions are welcome! If you encounter any issues or have suggestions for improvement, please feel free to create an issue or submit a pull request on the GitHub repository.

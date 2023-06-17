@@ -21,10 +21,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
-import com.shirishkoirala.fontawesome.IconView
-import com.shirishkoirala.fontawesome.Icons
+import com.shirishkoirala.fontawesome.sample.activities.ComposeActivity
 import com.shirishkoirala.fontawesome.sample.activities.JavaActivity
+import com.shirishkoirala.fontawesome.sample.activities.KotlinActivity
 import com.shirishkoirala.fontawesome.sample.ui.theme.FontawesomeTheme
 
 class MainActivity : ComponentActivity() {
@@ -49,15 +48,6 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun example() {
-//    AndroidView(factory = { context ->
-//        IconView(context)
-//    }, update = { view ->
-//        view.setIcon(Icons.font_awesome)
-//    })
-}
-
-@Composable
 fun ClickableList(context: Context, paddingValues: PaddingValues) {
     val itemList = listOf(
         "Example using XML and Java",
@@ -68,12 +58,11 @@ fun ClickableList(context: Context, paddingValues: PaddingValues) {
         items(itemList) { item ->
             ClickableText(item, onClick = {
                 if (itemList.indexOf(item) == 0) {
-                    val intent = Intent(context, JavaActivity::class.java)
-                    context.startActivity(intent)
-                } else if (itemList.indexOf(item) == 0) {
-
+                    context.startActivity(Intent(context, JavaActivity::class.java))
+                } else if (itemList.indexOf(item) == 1) {
+                    context.startActivity(Intent(context, KotlinActivity::class.java))
                 } else {
-
+                    context.startActivity(Intent(context, ComposeActivity::class.java))
                 }
             })
         }
