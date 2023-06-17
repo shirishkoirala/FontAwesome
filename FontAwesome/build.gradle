@@ -65,7 +65,7 @@ dependencies {
 
 ext {
     PUBLISH_GROUP_ID = 'com.shirishkoirala'
-    PUBLISH_VERSION = '0.1'
+    PUBLISH_VERSION = '0.2.0'
     PUBLISH_ARTIFACT_ID = 'FontAwesome'
 }
 

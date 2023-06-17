@@ -8,6 +8,7 @@ The FontAwesome Icon Library for Android provides a simple and convenient way to
 - Access a wide range of Font Awesome icons and use them to create drawables effortlessly.
 - Lightweight and efficient library.
 - Customizable icon size and color.
+- With Jetpack Compose Wrapper
 
 ## Installation
 
@@ -17,7 +18,7 @@ To use the FontAwesome Icon Library in your Android project, follow these steps:
 
     ```groovy
         dependencies {
-           implementation 'com.shirishkoirala:FontAwesome:0.1'
+           implementation 'com.shirishkoirala:FontAwesome:0.2.0'
         }
     ```
 
