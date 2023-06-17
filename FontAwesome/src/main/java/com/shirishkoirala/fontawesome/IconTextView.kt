@@ -18,6 +18,6 @@ class IconTextView : AppCompatTextView {
 
     private fun createView(context: Context) {
         gravity = Gravity.CENTER
-        typeface = Typeface.createFromAsset(context.assets, "font/solid.otf")
+        typeface = Typeface.createFromAsset(context.assets, "fonts/solid.otf")
     }
 }
