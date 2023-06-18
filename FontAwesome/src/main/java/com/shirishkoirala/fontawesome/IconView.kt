@@ -10,7 +10,7 @@ import androidx.appcompat.widget.AppCompatImageView
 class IconView :
     AppCompatImageView {
     private var color: Int = Color.WHITE
-    private var iconString: String? = Icons.font_awesome
+    private var iconString: String? = null
     private var iconDrawable: IconDrawable? = null
     private var attributeSet: AttributeSet? = null
     private var defStyleAttr: Int = 0

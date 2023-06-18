@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat
 
 @Composable
 fun ComposeIconView(
-    stringIcon: String = Icons.font_awesome,
+    stringIcon: String = Icons.font_awesome_brands.unicode,
     size: Dp = Dp(24f),
     @ColorRes color: Int = R.color.white,
     modifier: Modifier
