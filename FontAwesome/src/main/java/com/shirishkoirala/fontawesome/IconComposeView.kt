@@ -15,7 +15,7 @@ import com.shirishkoirala.fontawesome.data.Icons
 
 
 @Composable
-fun ComposeIconView(
+fun IconComposeView(
     modifier: Modifier = Modifier,
     iconData: IconData = Icons.java_brands,
     size: Dp = Dp(24f),
@@ -34,5 +34,5 @@ fun ComposeIconView(
 @Preview
 @Composable
 private fun Preview() {
-    ComposeIconView(modifier = Modifier.padding(Dp(20f)))
+    IconComposeView(modifier = Modifier.padding(Dp(20f)))
 }

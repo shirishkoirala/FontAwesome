@@ -21,7 +21,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.shirishkoirala.fontawesome.ComposeIconView
+import com.shirishkoirala.fontawesome.IconComposeView
 import com.shirishkoirala.fontawesome.data.Icons
 import com.shirishkoirala.fontawesome.sample.activities.ComposeActivity
 import com.shirishkoirala.fontawesome.sample.activities.JavaActivity
@@ -68,7 +68,7 @@ fun ClickableList(context: Context, paddingValues: PaddingValues) {
 @Composable
 fun ClickableText(item: MenuItem) {
     Row(modifier = Modifier.clickable { item.onClick.invoke() }) {
-        ComposeIconView(
+        IconComposeView(
             modifier = Modifier.padding(start = 16.dp, top = 16.dp),
             iconData = item.iconData,
         )
