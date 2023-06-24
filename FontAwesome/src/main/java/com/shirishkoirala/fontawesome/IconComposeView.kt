@@ -1,6 +1,5 @@
 package com.shirishkoirala.fontawesome
 
-import android.R
 import androidx.annotation.ColorRes
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.padding
@@ -18,9 +17,9 @@ import com.shirishkoirala.fontawesome.data.Icons
 @Composable
 fun IconComposeView(
     modifier: Modifier = Modifier,
-    iconData: IconData = Icons.java_brands,
+    iconData: IconData = Icons.font_awesome_brands,
     size: Dp = Dp(24f),
-    @ColorRes color: Int = if (isSystemInDarkTheme()) R.color.white else R.color.black,
+    @ColorRes color: Int = if (isSystemInDarkTheme()) android.R.color.primary_text_dark else android.R.color.primary_text_light,
 ) {
     AndroidView(factory = { context ->
         IconTextView(context)

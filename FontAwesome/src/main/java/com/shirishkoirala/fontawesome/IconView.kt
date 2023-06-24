@@ -1,14 +1,16 @@
 package com.shirishkoirala.fontawesome
 
 import android.content.Context
+import android.content.res.Configuration
 import android.graphics.Canvas
 import android.graphics.Color
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
-import com.shirishkoirala.fontawesome.drawables.IconDrawable
-import com.shirishkoirala.fontawesome.drawables.Icon
+import androidx.core.content.ContextCompat
 import com.shirishkoirala.fontawesome.data.IconData
 import com.shirishkoirala.fontawesome.data.Icons
+import com.shirishkoirala.fontawesome.drawables.Icon
+import com.shirishkoirala.fontawesome.drawables.IconDrawable
 
 
 class IconView : AppCompatImageView {
@@ -43,9 +45,15 @@ class IconView : AppCompatImageView {
             attributeSet, R.styleable.IconView, defStyleAttr, 0
         )
         iconString = attr.getString(R.styleable.IconView_iconString)
+
         color = attr.getColor(R.styleable.IconView_color, Color.WHITE)
 
         iconName = attr.getString(R.styleable.IconView_iconName)
+        createDrawable()
+        attr.recycle()
+    }
+
+    private fun createDrawable() {
         iconName?.let { iconName ->
             Icons::class.qualifiedName?.let { qualifiedName ->
                 val clazz = Class.forName(qualifiedName)
@@ -59,26 +67,41 @@ class IconView : AppCompatImageView {
         iconString?.let {
             iconDrawable = IconDrawable(context, it, color)
         }
-        attr.recycle()
     }
 
-    fun setColor(color: Int) {
+    private fun setColor(color: Int) {
         this.color = color
+        createDrawable()
         invalidate()
         requestLayout()
     }
 
     fun setIcon(icon: String) {
         iconString = icon
-        iconString?.let {
-            iconDrawable = IconDrawable(context, it, color)
-        }
+        createDrawable()
         invalidate()
         requestLayout()
     }
 
     override fun draw(canvas: Canvas?) {
         super.draw(canvas)
+
+        val nightModeFlags = context.resources.configuration.uiMode and
+                Configuration.UI_MODE_NIGHT_MASK
+        when (nightModeFlags) {
+            Configuration.UI_MODE_NIGHT_YES -> {
+                color = ContextCompat.getColor(context, android.R.color.primary_text_dark)
+            }
+
+            Configuration.UI_MODE_NIGHT_NO -> {
+                color = ContextCompat.getColor(context, android.R.color.primary_text_light)
+            }
+
+            Configuration.UI_MODE_NIGHT_UNDEFINED -> {
+                color = ContextCompat.getColor(context, android.R.color.primary_text_light)
+            }
+        }
+        createDrawable()
         iconDrawable?.let {
             setImageDrawable(it)
         }
