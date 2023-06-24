@@ -1,4 +1,4 @@
-package com.shirishkoirala.fontawesome
+package com.shirishkoirala.fontawesome.ui
 
 import android.content.Context
 import android.graphics.Typeface

@@ -1,4 +1,4 @@
-package com.shirishkoirala.fontawesome
+package com.shirishkoirala.fontawesome.ui.drawable
 
 import android.content.Context
 import android.graphics.Canvas

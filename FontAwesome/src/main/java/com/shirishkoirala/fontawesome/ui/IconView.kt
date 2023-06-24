@@ -1,19 +1,25 @@
-package com.shirishkoirala.fontawesome
+package com.shirishkoirala.fontawesome.ui
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
+import com.shirishkoirala.fontawesome.ui.drawable.IconDrawable
+import com.shirishkoirala.fontawesome.R
+import com.shirishkoirala.fontawesome.ui.drawable.Icon
+import com.shirishkoirala.fontawesome.data.IconData
+import com.shirishkoirala.fontawesome.data.Icons
 
 
-class IconView :
-    AppCompatImageView {
+class IconView : AppCompatImageView {
     private var color: Int = Color.WHITE
     private var iconString: String? = null
+    private var iconName: String? = null
     private var iconDrawable: IconDrawable? = null
     private var attributeSet: AttributeSet? = null
     private var defStyleAttr: Int = 0
+    private var icon: Icon? = null
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet) : super(context, attributeSet) {
@@ -22,9 +28,7 @@ class IconView :
     }
 
     constructor(context: Context, attributeSet: AttributeSet, defStyleAttr: Int) : super(
-        context,
-        attributeSet,
-        defStyleAttr
+        context, attributeSet, defStyleAttr
     ) {
         this.attributeSet = attributeSet
         this.defStyleAttr = defStyleAttr
@@ -37,13 +41,21 @@ class IconView :
 
     private fun init() {
         val attr = context.theme.obtainStyledAttributes(
-            attributeSet,
-            R.styleable.IconView,
-            defStyleAttr,
-            0
+            attributeSet, R.styleable.IconView, defStyleAttr, 0
         )
         iconString = attr.getString(R.styleable.IconView_iconString)
         color = attr.getColor(R.styleable.IconView_color, Color.WHITE)
+
+        iconName = attr.getString(R.styleable.IconView_iconName)
+        iconName?.let { iconName ->
+            Icons::class.qualifiedName?.let { qualifiedName ->
+                val clazz = Class.forName(qualifiedName)
+                val field = clazz.getDeclaredField(iconName)
+                field.isAccessible = true
+                val iconData = field.get(null) as IconData
+                icon = Icon(context = context, iconData = iconData, color = color)
+            }
+        }
 
         iconString?.let {
             iconDrawable = IconDrawable(context, it, color)
@@ -68,6 +80,11 @@ class IconView :
 
     override fun draw(canvas: Canvas?) {
         super.draw(canvas)
-        setImageDrawable(iconDrawable)
+        iconDrawable?.let {
+            setImageDrawable(it)
+        }
+        icon?.let {
+            setImageDrawable(it)
+        }
     }
 }

@@ -13,7 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import com.shirishkoirala.fontawesome.ComposeIconView
+import com.shirishkoirala.fontawesome.ui.ComposeIconView
 import com.shirishkoirala.fontawesome.sample.R
 import com.shirishkoirala.fontawesome.sample.ui.theme.FontawesomeTheme
 
@@ -31,7 +31,6 @@ class ComposeActivity : ComponentActivity() {
                         TopAppBar(title = { Text(text = "My App") })
                     }) {
                         ComposeIconView(
-                            color = R.color.black,
                             modifier = Modifier.padding(it),
                             size = Dp(35f)
                         )

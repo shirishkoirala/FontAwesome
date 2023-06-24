@@ -5,15 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.shirishkoirala.fontawesome.IconView
+    <com.shirishkoirala.fontawesome.ui.IconView
         android:layout_width="30dp"
         android:layout_height="30dp"
         app:color="@color/black"
-        app:iconString="@string/gear" />
+        app:iconName="@string/ic_name_gear_solid" />
 
-    <com.shirishkoirala.fontawesome.IconTextView
+    <com.shirishkoirala.fontawesome.ui.IconTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/gear"
-        android:textSize="30sp" />
+        android:text="@string/ic_unicode_gear_solid"
+        android:textSize="40sp" />
 </LinearLayout>
