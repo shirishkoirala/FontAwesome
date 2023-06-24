@@ -50,7 +50,7 @@ class MainActivity : ComponentActivity() {
                                 )
                                 Text(
                                     modifier = Modifier.padding(start = 10.dp),
-                                    text = "Font Awesome"
+                                    text = getString(R.string.app_name)
                                 )
                             }
                         })

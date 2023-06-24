@@ -101,6 +101,7 @@ class IconView : AppCompatImageView {
                 color = ContextCompat.getColor(context, android.R.color.primary_text_light)
             }
         }
+
         createDrawable()
         iconDrawable?.let {
             setImageDrawable(it)
