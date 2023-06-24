@@ -5,4 +5,13 @@
         <attr name="color" format="color" />
         <attr name="iconName" format="string" />
     </declare-styleable>
+
+    <declare-styleable name="IconTextView">
+        <attr name="iconType" format="enum">
+            <enum name="regular" value="0" />
+            <enum name="solid" value="1" />
+            <enum name="brands" value="2" />
+        </attr>
+
+    </declare-styleable>
 </resources>

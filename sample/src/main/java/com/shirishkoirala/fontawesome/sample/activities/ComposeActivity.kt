@@ -13,8 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
-import com.shirishkoirala.fontawesome.ui.ComposeIconView
-import com.shirishkoirala.fontawesome.sample.R
+import com.shirishkoirala.fontawesome.ComposeIconView
 import com.shirishkoirala.fontawesome.sample.ui.theme.FontawesomeTheme
 
 class ComposeActivity : ComponentActivity() {

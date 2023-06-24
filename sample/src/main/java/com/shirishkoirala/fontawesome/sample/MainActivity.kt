@@ -7,8 +7,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -21,9 +21,12 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.shirishkoirala.fontawesome.ComposeIconView
+import com.shirishkoirala.fontawesome.data.Icons
 import com.shirishkoirala.fontawesome.sample.activities.ComposeActivity
 import com.shirishkoirala.fontawesome.sample.activities.JavaActivity
 import com.shirishkoirala.fontawesome.sample.activities.KotlinActivity
+import com.shirishkoirala.fontawesome.sample.models.MenuItem
 import com.shirishkoirala.fontawesome.sample.ui.theme.FontawesomeTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,30 +51,32 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ClickableList(context: Context, paddingValues: PaddingValues) {
-    val itemList = listOf(
-        "Example using XML and Java",
-        "Example using XML and Kotlin",
-        "Example using Jetpack Compose and Kotlin"
-    )
+    val itemList = listOf(MenuItem(Icons.code_solid, "XML and Java") {
+        context.startActivity(Intent(context, JavaActivity::class.java))
+    }, MenuItem(Icons.code_solid, "XML and Kotlin") {
+        context.startActivity(Intent(context, KotlinActivity::class.java))
+    }, MenuItem(Icons.file_code_regular, "Compose and Kotlin") {
+        context.startActivity(Intent(context, ComposeActivity::class.java))
+    })
     LazyColumn(modifier = Modifier.padding(paddingValues = paddingValues)) {
         items(itemList) { item ->
-            ClickableText(item, onClick = {
-                if (itemList.indexOf(item) == 0) {
-                    context.startActivity(Intent(context, JavaActivity::class.java))
-                } else if (itemList.indexOf(item) == 1) {
-                    context.startActivity(Intent(context, KotlinActivity::class.java))
-                } else {
-                    context.startActivity(Intent(context, ComposeActivity::class.java))
-                }
-            })
+            ClickableText(item)
         }
     }
 }
 
 @Composable
-fun ClickableText(text: String, onClick: () -> Unit) {
-    Text(text = text, modifier = Modifier
-        .fillMaxWidth()
-        .clickable { onClick.invoke() }
-        .padding(16.dp))
+fun ClickableText(item: MenuItem) {
+    Row(modifier = Modifier.clickable { item.onClick.invoke() }) {
+        ComposeIconView(
+            modifier = Modifier.padding(start = 16.dp, top = 16.dp),
+            iconData = item.iconData,
+        )
+        Text(
+            text = item.title,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+        )
+    }
 }

@@ -1,13 +1,12 @@
-package com.shirishkoirala.fontawesome.ui
+package com.shirishkoirala.fontawesome
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
-import com.shirishkoirala.fontawesome.ui.drawable.IconDrawable
-import com.shirishkoirala.fontawesome.R
-import com.shirishkoirala.fontawesome.ui.drawable.Icon
+import com.shirishkoirala.fontawesome.drawable.IconDrawable
+import com.shirishkoirala.fontawesome.drawable.Icon
 import com.shirishkoirala.fontawesome.data.IconData
 import com.shirishkoirala.fontawesome.data.Icons
 

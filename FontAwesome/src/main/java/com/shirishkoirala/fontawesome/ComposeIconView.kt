@@ -1,4 +1,4 @@
-package com.shirishkoirala.fontawesome.ui
+package com.shirishkoirala.fontawesome
 
 import android.R
 import androidx.annotation.ColorRes
@@ -10,21 +10,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
+import com.shirishkoirala.fontawesome.data.IconData
 import com.shirishkoirala.fontawesome.data.Icons
 
 
 @Composable
 fun ComposeIconView(
-    stringIcon: String = Icons.font_awesome_brands.unicode,
+    modifier: Modifier = Modifier,
+    iconData: IconData = Icons.java_brands,
     size: Dp = Dp(24f),
-    @ColorRes color: Int = if (isSystemInDarkTheme()) R.color.white else R.color.darker_gray,
-    modifier: Modifier
+    @ColorRes color: Int = if (isSystemInDarkTheme()) R.color.white else R.color.black,
 ) {
     AndroidView(factory = { context ->
         IconTextView(context)
     }, update = { view ->
-        view.text = stringIcon
+        view.text = iconData.unicode
         view.textSize = size.value
+        view.fontType = iconData.type
         view.setTextColor(ContextCompat.getColor(view.context, color))
     }, modifier = modifier)
 }
