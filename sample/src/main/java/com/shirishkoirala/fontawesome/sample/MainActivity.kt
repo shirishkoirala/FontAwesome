@@ -9,7 +9,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -19,6 +21,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.shirishkoirala.fontawesome.IconComposeView
@@ -39,7 +42,18 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
                     Scaffold(topBar = {
-                        TopAppBar(title = { Text(text = "My App") })
+                        TopAppBar(title = {
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                IconComposeView(
+                                    modifier = Modifier.padding(end = 10.dp),
+                                    iconData = Icons.font_awesome_brands
+                                )
+                                Text(
+                                    modifier = Modifier.padding(start = 10.dp),
+                                    text = "Font Awesome"
+                                )
+                            }
+                        })
                     }) {
                         ClickableList(this, it)
                     }

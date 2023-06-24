@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.content.ContextCompat
 import com.shirishkoirala.fontawesome.data.IconData
@@ -34,5 +35,5 @@ fun IconComposeView(
 @Preview
 @Composable
 private fun Preview() {
-    IconComposeView(modifier = Modifier.padding(Dp(20f)))
+    IconComposeView(modifier = Modifier.padding(20.dp))
 }

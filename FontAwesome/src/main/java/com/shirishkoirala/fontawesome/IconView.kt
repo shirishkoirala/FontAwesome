@@ -5,8 +5,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
-import com.shirishkoirala.fontawesome.drawable.IconDrawable
-import com.shirishkoirala.fontawesome.drawable.Icon
+import com.shirishkoirala.fontawesome.drawables.IconDrawable
+import com.shirishkoirala.fontawesome.drawables.Icon
 import com.shirishkoirala.fontawesome.data.IconData
 import com.shirishkoirala.fontawesome.data.Icons
 
