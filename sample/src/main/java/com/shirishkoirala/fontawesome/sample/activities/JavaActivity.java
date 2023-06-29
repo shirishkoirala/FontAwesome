@@ -19,6 +19,8 @@ public class JavaActivity extends AppCompatActivity {
         IconView iconView = findViewById(R.id.icon_view);
         IconTextView iconTextView = findViewById(R.id.icon_text_view);
 
-        iconView.setIconData(Icons.Companion.getGears_solid());
+        iconView.setIconData(Icons.Companion.getAnkh_solid());
+
+        iconTextView.setText(R.string.ic_unicode_gears_solid);
     }
 }

@@ -51,20 +51,19 @@ class IconView : AppCompatImageView {
         color = attr.getColor(R.styleable.IconView_color, Color.WHITE)
 
         iconName = attr.getString(R.styleable.IconView_iconName)
-        createDrawable()
-        attr.recycle()
-    }
-
-    private fun createDrawable() {
         iconName?.let { iconName ->
             Icons::class.qualifiedName?.let { qualifiedName ->
                 val clazz = Class.forName(qualifiedName)
                 val field = clazz.getDeclaredField(iconName)
                 field.isAccessible = true
-                val iconData = field.get(null) as IconData
-                icon = Icon(context = context, iconData = iconData, color = color)
+                iconData = field.get(null) as IconData
             }
         }
+        attr.recycle()
+    }
+
+    private fun createDrawable(){
+        icon = Icon(context = context, iconData = iconData, color = color)
     }
 
     override fun draw(canvas: Canvas?) {
