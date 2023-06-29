@@ -8,12 +8,14 @@
     android:orientation="vertical">
 
     <com.shirishkoirala.fontawesome.IconView
+        android:id="@+id/icon_view"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="8dp"
         app:iconName="@string/ic_name_gear_solid" />
 
     <com.shirishkoirala.fontawesome.IconTextView
+        android:id="@+id/icon_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"

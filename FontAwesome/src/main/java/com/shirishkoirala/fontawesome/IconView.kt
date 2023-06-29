@@ -10,14 +10,17 @@ import androidx.core.content.ContextCompat
 import com.shirishkoirala.fontawesome.data.IconData
 import com.shirishkoirala.fontawesome.data.Icons
 import com.shirishkoirala.fontawesome.drawables.Icon
-import com.shirishkoirala.fontawesome.drawables.IconDrawable
 
 
 class IconView : AppCompatImageView {
-    private var color: Int = Color.WHITE
-    private var iconString: String? = null
+    private var color: Int = Color.BLACK
+    var iconData: IconData = Icons.font_awesome_brands
+        set(value) {
+            field = value
+            invalidate()
+            requestLayout()
+        }
     private var iconName: String? = null
-    private var iconDrawable: IconDrawable? = null
     private var attributeSet: AttributeSet? = null
     private var defStyleAttr: Int = 0
     private var icon: Icon? = null
@@ -44,7 +47,6 @@ class IconView : AppCompatImageView {
         val attr = context.theme.obtainStyledAttributes(
             attributeSet, R.styleable.IconView, defStyleAttr, 0
         )
-        iconString = attr.getString(R.styleable.IconView_iconString)
 
         color = attr.getColor(R.styleable.IconView_color, Color.WHITE)
 
@@ -63,24 +65,6 @@ class IconView : AppCompatImageView {
                 icon = Icon(context = context, iconData = iconData, color = color)
             }
         }
-
-        iconString?.let {
-            iconDrawable = IconDrawable(context, it, color)
-        }
-    }
-
-    private fun setColor(color: Int) {
-        this.color = color
-        createDrawable()
-        invalidate()
-        requestLayout()
-    }
-
-    fun setIcon(icon: String) {
-        iconString = icon
-        createDrawable()
-        invalidate()
-        requestLayout()
     }
 
     override fun draw(canvas: Canvas?) {
@@ -103,9 +87,7 @@ class IconView : AppCompatImageView {
         }
 
         createDrawable()
-        iconDrawable?.let {
-            setImageDrawable(it)
-        }
+
         icon?.let {
             setImageDrawable(it)
         }
